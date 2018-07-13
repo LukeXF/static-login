@@ -1,21 +1,116 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>A static website</title>
-
+	<title>SkipperMyBoat Admin Panel</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css"
+	      integrity="sha256-Md8eaeo67OiouuXAi8t/Xpd8t2+IaJezATVTWbZqSOw=" crossorigin="anonymous"/>
+	<link rel="stylesheet" href="css/style.css">
 	<!-- include the widget -->
 	<script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+	<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"-->
+	<!--integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>-->
+	<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.min.js"-->
+	<!--integrity="sha256-xaF9RpdtRxzwYMWg4ldJoyPWqyDPCRD0Cv7YEEe6Ie8=" crossorigin="anonymous"></script>-->
+
+
+	<link rel="apple-touch-icon" sizes="180x180" href="https://cdn.skippermyboat.com/static/img/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="https://cdn.skippermyboat.com/static/img/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="https://cdn.skippermyboat.com/static/img/favicon-16x16.png">
+	<link rel="manifest" href="https://cdn.skippermyboat.com/static/img/manifest.json">
+	<link rel="mask-icon" href="https://cdn.skippermyboat.com/static/img/safari-pinned-tab.svg" color="#a1a1a1">
+	<link rel="shortcut icon" href="https://cdn.skippermyboat.com/static/img/favicon.ico">
+	<meta name="msapplication-config" content="https://cdn.skippermyboat.com/static/img/browserconfig.xml">
+	<meta name="theme-color" content="#ffffff">
+
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
 </head>
 <body>
 <!-- Add a menu:
  Log in / Sign up - when the user is not logged in
  Username / Log out - when the user is logged in
 -->
-<div data-netlify-identity-menu></div>
 
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<a class="navbar-brand" href="#">
+		<img src="https://cdn.skippermyboat.com/static/img/logo-white.svg">
+	</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+	        aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+
+	<div class="collapse navbar-collapse" id="navbarColor01" data-netlify-identity-menu>
+	</div>
+
+	<ul class="navbar-nav mr-auto">
+		<li class="nav-item active">
+			<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="#">Link</a>
+		</li>
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+			   aria-haspopup="true" aria-expanded="false">
+				Dropdown
+			</a>
+			<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+				<a class="dropdown-item" href="#">Action</a>
+				<a class="dropdown-item" href="#">Another action</a>
+				<div class="dropdown-divider"></div>
+				<a class="dropdown-item" href="#">Something else here</a>
+			</div>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link disabled" href="#">Disabled</a>
+		</li>
+	</ul>
+</nav>
+
+<div id="app">
+	{{ message }}
+</div>
+<div id="app-6">
+	<p>{{ message }}</p>
+	<pre>{{ user }}</pre>
+	<input v-model="message">
+</div>
 <!-- Add a simpler button:
   Simple button that will open the modal.
 -->
-<div data-netlify-identity-button>Login with Netlify Identity</div>
+<div data-netlify-identity-button></div>
 </body>
 </html>
+
+<script src="index.js"></script>
+<script>
+
+	// // Get the current user:
+	// const user = netlifyIdentity.currentUser();
+	//
+	//
+	// $('.netlify-identity-menu').addClass('navbar-nav mr-auto');
+	// $('.netlify-identity-menu li').addClass('nav-item');
+	// $('.netlify-identity-menu li a').addClass('nav-link');
+	//
+	// // Bind to events
+	// netlifyIdentity.on("init", user => {
+	// 	console.log('init');
+	// 	console.log(user);
+	// 	$('.netlify-identity-menu').addClass('navbar-nav mr-auto').each(function (i, obj) {
+	//
+	// 		$('.netlify-identity-menu li').addClass('nav-item');
+	// 		$('.netlify-identity-menu li a').addClass('nav-link');
+	// 	});
+	// });
+	// netlifyIdentity.on("login", user => console.log(user));
+	// netlifyIdentity.on("logout", () => console.log("Logged out"));
+	// netlifyIdentity.on("error", err => console.error("Logged out"));
+	// netlifyIdentity.on("open", () => {
+	// 	console.log("Widget opened");
+	// 	$('body').contents().find('.modalContainer').html('<div> blah </div>');
+	// 	console.log($('#netlify-identity-widget').contents().find('a').hide());
+	// });
+	// netlifyIdentity.on("close", () => console.log("Widget closed"));
+</script>
